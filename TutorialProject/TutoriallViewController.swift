@@ -7,16 +7,17 @@
 
 import UIKit
 
+struct DataSoure {
+    let image: String
+    let title1: String
+    let title2: String
+    let button: String
+}
 class TutoriallViewController: UIViewController{
-
+    
     @IBOutlet weak private var myCollectionView: UICollectionView!
     
-    struct DataSoure {
-        let image: String
-        let title1: String
-        let title2: String
-        let button: String
-    }
+    
     
     let models: [DataSoure] = [DataSoure(image: "welcome", title1: "Welcom to Potugar", title2: "Hãy đến nơi đây", button: "Skip"),
                                DataSoure(image: "16", title1: "Chiến thôi nào", title2: "Cố lên", button: "Skip"),
@@ -43,7 +44,7 @@ class TutoriallViewController: UIViewController{
             flowLayout.minimumInteritemSpacing = 0 // khoảng cách các dòng theo chiều ngang, trục x
             flowLayout.scrollDirection = .horizontal // chuyển cuộn trang ngang, dọc
             flowLayout.estimatedItemSize = .zero
-          
+            
             flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height) //chỉnh sửa kích thước ảnh
         }
         myCollectionView.register(UINib(nibName: "ItemSection1CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ItemSection1CollectionViewCell")
@@ -56,53 +57,43 @@ extension TutoriallViewController: UICollectionViewDataSource, UICollectionViewD
      mặc định sẽ là 1
      định nghĩa số section trong 1 collectionview
      */
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 1  /// section 0, 1, 2
-        ///
-        ///  định nghĩa trong 1 section
-//    }
+    //    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    //        return 1  /// section 0, 1, 2
+    ///
+    ///  định nghĩa trong 1 section
+    //    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        switch section {
-//        case 0:
-//            return 3
-//
-//        case 1:
-//            return 0
-//        case 2:
-//            return 0
-//        default:
-//            return 0
-//        }
         models.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let lisItem = models[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemSection1CollectionViewCell", for: indexPath) as! ItemSection1CollectionViewCell
-        cell.avatarImage.image = UIImage(named: lisItem.image)
-        cell.myLabel.text = lisItem.title1
-        cell.mytitleLabel.text = lisItem.title2
-        cell.myButton.setTitle(lisItem.button, for: .normal)
-        cell.myButton.layer.borderColor = UIColor.systemBlue.cgColor
-        cell.myButton.layer.borderWidth = 1 
-        cell.myButton.tintColor = .systemBlue
-        cell.myButton.layer.cornerRadius = 10
+        cell.configCell(lisItem)
         cell.didTapSkip = { [weak self] in
+            guard let self = self else {return}
             DispatchQueue.main.async {
-                self?.scrollToNextCell()
+                if indexPath.row == self.models.count - 1 {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let input = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                    input.modalPresentationStyle = .fullScreen
+                    self.present(input, animated: true)
+                }
+                
+                self.scrollToNextCell()
             }
         }
         return cell
     }
     
     func scrollToNextCell() {
-            //lấy kích thước cell
-            let cellSize = CGSizeMake(self.view.frame.width, self.view.frame.height);
-
-            //get current content Offset of the Collection view
-            let contentOffset = myCollectionView.contentOffset
-
-            //scroll to next cell
-            myCollectionView.scrollRectToVisible(CGRectMake(contentOffset.x + cellSize.width, contentOffset.y, cellSize.width, cellSize.height), animated: true);
-        }
+        //lấy kích thước cell
+        let cellSize = CGSizeMake(self.view.frame.width, self.view.frame.height);
+        
+        //get current content Offset of the Collection view
+        let contentOffset = myCollectionView.contentOffset
+        
+        //scroll to next cell
+        myCollectionView.scrollRectToVisible(CGRectMake(contentOffset.x + cellSize.width, contentOffset.y, cellSize.width, cellSize.height), animated: true);
+    }
 }
 
