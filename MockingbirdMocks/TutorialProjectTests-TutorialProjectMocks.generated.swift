@@ -8,6 +8,7 @@
 
 @testable import Mockingbird
 @testable import TutorialProject
+import Alamofire
 import Foundation
 import Swift
 import UIKit

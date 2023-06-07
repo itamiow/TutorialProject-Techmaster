@@ -11,6 +11,7 @@ protocol LoginDisplay {
     func validateFailure(message: String)
 }
 
+
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var avaTarImage: UIImageView!
@@ -26,9 +27,21 @@ class LoginViewController: UIViewController {
     var presenter: LoginPresenter!
     
     override func viewDidLoad() {
-        let authAPIService = AuthAPIServiceImpl()
-//        let authPepository = AuthAPIServiceImpl(authAPIService: authAPIService)
-//        presenter = LoginPresenterImpl(controller: self,authRepository: authPepository)
+        /**
+         Khởi tại instance của AuthAPISerivce
+         */
+        let authAPIService = AuthAPISerivceImpl()
+        
+        /**
+         Khởi tại instance củaAuthRepository
+         */
+        let authRepository = AuthRepositoryImpl(authApiService: authAPIService)
+        
+        /**
+         Khởi tại instance LoginPresenter
+         */
+        presenter = LoginPresenterImpl(controller: self, authRepository: authRepository)
+        
         
         setupUI()
         super.viewDidLoad()
@@ -49,24 +62,28 @@ class LoginViewController: UIViewController {
         loginButton.backgroundColor = .systemCyan
         loginButton.layer.cornerRadius = 10
         loginButton.tintColor = .white
-        
     }
-    
-    
-    
-    
-    
+
     @IBAction func handleLoginTap(sender: UIButton) {
         let username = usernameTF.text ?? ""
         let password = password.text ?? ""
         presenter.login(username: username, password: password)
     }
-    
-}
-
-extension LoginViewController: LoginDisplay {
  
     
+    @IBAction func registerClick(_ sender: UIButton) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let inputNext = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        inputNext.modalPresentationStyle = .fullScreen
+        self.present(inputNext, animated: true)
+    }
+}
+
+
+
+extension LoginViewController: LoginDisplay {
+
     func validateFailure(message: String) {
         print(message)
         

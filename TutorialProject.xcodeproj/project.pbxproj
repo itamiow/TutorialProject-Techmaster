@@ -10,15 +10,15 @@
 		69F55D586183B466BE87871A /* Pods_TutorialProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F162FB5B0AC1806E0F74692 /* Pods_TutorialProject.framework */; };
 		8A2A99B6C86BDCB8481A46F6 /* TutorialProjectTests-TutorialProjectMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB514222EC118B8C8A5F977 /* TutorialProjectTests-TutorialProjectMocks.generated.swift */; };
 		CE228108ED8EDF2E17168267 /* Pods_TutorialProject_TutorialProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B21E320D9B0FB86AB787DCE /* Pods_TutorialProject_TutorialProjectTests.framework */; };
-		CE2421E82A2E1000004A5B85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421E72A2E1000004A5B85 /* LoginViewController.swift */; };
 		CE2421EA2A2E101A004A5B85 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421E92A2E101A004A5B85 /* LoginPresenter.swift */; };
 		CE2421ED2A2E1265004A5B85 /* TestLoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421EB2A2E1109004A5B85 /* TestLoginPresenter.swift */; };
 		CE2421F02A2E21D4004A5B85 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421EF2A2E21D4004A5B85 /* AuthRepository.swift */; };
 		CE2421F32A2E229D004A5B85 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421F22A2E229D004A5B85 /* Entity.swift */; };
 		CE2421F62A2E242C004A5B85 /* AuthAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421F52A2E242C004A5B85 /* AuthAPIService.swift */; };
+		CE2421FC2A2F8716004A5B85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421E72A2E1000004A5B85 /* LoginViewController.swift */; };
+		CE2422002A3022CB004A5B85 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421FF2A3022CB004A5B85 /* RegisterViewController.swift */; };
 		CE28E3F02A2ADE3800663DA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28E3EF2A2ADE3800663DA5 /* AppDelegate.swift */; };
 		CE28E3F22A2ADE3800663DA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28E3F12A2ADE3800663DA5 /* SceneDelegate.swift */; };
-		CE28E3F42A2ADE3800663DA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28E3F32A2ADE3800663DA5 /* ViewController.swift */; };
 		CE28E3F72A2ADE3800663DA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE28E3F52A2ADE3800663DA5 /* Main.storyboard */; };
 		CE28E3F92A2ADE3A00663DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE28E3F82A2ADE3A00663DA5 /* Assets.xcassets */; };
 		CE28E3FC2A2ADE3A00663DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE28E3FA2A2ADE3A00663DA5 /* LaunchScreen.storyboard */; };
@@ -50,10 +50,10 @@
 		CE2421EF2A2E21D4004A5B85 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		CE2421F22A2E229D004A5B85 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		CE2421F52A2E242C004A5B85 /* AuthAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPIService.swift; sourceTree = "<group>"; };
+		CE2421FF2A3022CB004A5B85 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CE28E3EC2A2ADE3800663DA5 /* TutorialProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorialProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE28E3EF2A2ADE3800663DA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE28E3F12A2ADE3800663DA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE28E3F32A2ADE3800663DA5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE28E3F62A2ADE3800663DA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE28E3F82A2ADE3A00663DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE28E3FB2A2ADE3A00663DA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -154,6 +154,14 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		CE2421FE2A302298004A5B85 /* RegisterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE2421FF2A3022CB004A5B85 /* RegisterViewController.swift */,
+			);
+			path = RegisterViewController;
+			sourceTree = "<group>";
+		};
 		CE28E3E32A2ADE3800663DA5 = {
 			isa = PBXGroup;
 			children = (
@@ -178,13 +186,13 @@
 		CE28E3EE2A2ADE3800663DA5 /* TutorialProject */ = {
 			isa = PBXGroup;
 			children = (
+				CE2421FE2A302298004A5B85 /* RegisterViewController */,
 				CE2421F72A2ED2DC004A5B85 /* Screens */,
 				CE2421F42A2E23F5004A5B85 /* APIServices */,
 				CE2421F12A2E228C004A5B85 /* Entity */,
 				CE2421EE2A2E2190004A5B85 /* Repositories */,
 				CE28E3EF2A2ADE3800663DA5 /* AppDelegate.swift */,
 				CE28E3F12A2ADE3800663DA5 /* SceneDelegate.swift */,
-				CE28E3F32A2ADE3800663DA5 /* ViewController.swift */,
 				CE28E3F52A2ADE3800663DA5 /* Main.storyboard */,
 				CE28E3F82A2ADE3A00663DA5 /* Assets.xcassets */,
 				CE28E3FA2A2ADE3A00663DA5 /* LaunchScreen.storyboard */,
@@ -417,15 +425,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2421E82A2E1000004A5B85 /* LoginViewController.swift in Sources */,
 				CE2421F02A2E21D4004A5B85 /* AuthRepository.swift in Sources */,
+				CE2422002A3022CB004A5B85 /* RegisterViewController.swift in Sources */,
 				CE2421F62A2E242C004A5B85 /* AuthAPIService.swift in Sources */,
 				CE28E4092A2ADF3200663DA5 /* TutoriallViewController.swift in Sources */,
 				CE2421EA2A2E101A004A5B85 /* LoginPresenter.swift in Sources */,
-				CE28E3F42A2ADE3800663DA5 /* ViewController.swift in Sources */,
 				CE2421F32A2E229D004A5B85 /* Entity.swift in Sources */,
 				CE28E3F02A2ADE3800663DA5 /* AppDelegate.swift in Sources */,
 				CE28E3F22A2ADE3800663DA5 /* SceneDelegate.swift in Sources */,
+				CE2421FC2A2F8716004A5B85 /* LoginViewController.swift in Sources */,
 				CE28E4082A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
