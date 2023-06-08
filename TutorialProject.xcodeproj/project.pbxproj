@@ -25,6 +25,9 @@
 		CE28E4072A2ADF3200663DA5 /* ItemSection1CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE28E4042A2ADF3200663DA5 /* ItemSection1CollectionViewCell.xib */; };
 		CE28E4082A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28E4052A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift */; };
 		CE28E4092A2ADF3200663DA5 /* TutoriallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28E4062A2ADF3200663DA5 /* TutoriallViewController.swift */; };
+		CE5DD3CF2A30B1AB001FEA17 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DD3CE2A30B1AA001FEA17 /* AuthRouter.swift */; };
+		CE5DD3D22A30B2D6001FEA17 /* NetWorkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DD3D12A30B2D6001FEA17 /* NetWorkConstant.swift */; };
+		CE5DD3D42A3197CE001FEA17 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DD3D32A3197CE001FEA17 /* RegisterPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		CE28E4042A2ADF3200663DA5 /* ItemSection1CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemSection1CollectionViewCell.xib; sourceTree = "<group>"; };
 		CE28E4052A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSection1CollectionViewCell.swift; sourceTree = "<group>"; };
 		CE28E4062A2ADF3200663DA5 /* TutoriallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutoriallViewController.swift; sourceTree = "<group>"; };
+		CE5DD3CE2A30B1AA001FEA17 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		CE5DD3D12A30B2D6001FEA17 /* NetWorkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkConstant.swift; sourceTree = "<group>"; };
+		CE5DD3D32A3197CE001FEA17 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		D19ADBC27A0EC2F1431AAB88 /* Pods-TutorialProject-TutorialProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TutorialProject-TutorialProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-TutorialProject-TutorialProjectTests/Pods-TutorialProject-TutorialProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DF60AFE8A250A94AA76E043D /* Pods-TutorialProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TutorialProject.debug.xcconfig"; path = "Target Support Files/Pods-TutorialProject/Pods-TutorialProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,14 +127,6 @@
 			path = TutorialProjectTests;
 			sourceTree = "<group>";
 		};
-		CE2421EE2A2E2190004A5B85 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				CE2421EF2A2E21D4004A5B85 /* AuthRepository.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
 		CE2421F12A2E228C004A5B85 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,23 +139,25 @@
 			isa = PBXGroup;
 			children = (
 				CE2421F52A2E242C004A5B85 /* AuthAPIService.swift */,
+				CE2421EF2A2E21D4004A5B85 /* AuthRepository.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
 		};
-		CE2421F72A2ED2DC004A5B85 /* Screens */ = {
+		CE2421F72A2ED2DC004A5B85 /* Login + Screens */ = {
 			isa = PBXGroup;
 			children = (
 				CE2421E72A2E1000004A5B85 /* LoginViewController.swift */,
 				CE2421E92A2E101A004A5B85 /* LoginPresenter.swift */,
 			);
-			path = Screens;
+			path = "Login + Screens";
 			sourceTree = "<group>";
 		};
 		CE2421FE2A302298004A5B85 /* RegisterViewController */ = {
 			isa = PBXGroup;
 			children = (
 				CE2421FF2A3022CB004A5B85 /* RegisterViewController.swift */,
+				CE5DD3D32A3197CE001FEA17 /* RegisterPresenter.swift */,
 			);
 			path = RegisterViewController;
 			sourceTree = "<group>";
@@ -186,11 +186,11 @@
 		CE28E3EE2A2ADE3800663DA5 /* TutorialProject */ = {
 			isa = PBXGroup;
 			children = (
+				CE5DD3D02A30B2A5001FEA17 /* NetWork */,
 				CE2421FE2A302298004A5B85 /* RegisterViewController */,
-				CE2421F72A2ED2DC004A5B85 /* Screens */,
+				CE2421F72A2ED2DC004A5B85 /* Login + Screens */,
 				CE2421F42A2E23F5004A5B85 /* APIServices */,
 				CE2421F12A2E228C004A5B85 /* Entity */,
-				CE2421EE2A2E2190004A5B85 /* Repositories */,
 				CE28E3EF2A2ADE3800663DA5 /* AppDelegate.swift */,
 				CE28E3F12A2ADE3800663DA5 /* SceneDelegate.swift */,
 				CE28E3F52A2ADE3800663DA5 /* Main.storyboard */,
@@ -210,6 +210,15 @@
 				CE28E4052A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift */,
 			);
 			path = cellfile;
+			sourceTree = "<group>";
+		};
+		CE5DD3D02A30B2A5001FEA17 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				CE5DD3CE2A30B1AA001FEA17 /* AuthRouter.swift */,
+				CE5DD3D12A30B2D6001FEA17 /* NetWorkConstant.swift */,
+			);
+			path = NetWork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,10 +438,13 @@
 				CE2422002A3022CB004A5B85 /* RegisterViewController.swift in Sources */,
 				CE2421F62A2E242C004A5B85 /* AuthAPIService.swift in Sources */,
 				CE28E4092A2ADF3200663DA5 /* TutoriallViewController.swift in Sources */,
+				CE5DD3D22A30B2D6001FEA17 /* NetWorkConstant.swift in Sources */,
 				CE2421EA2A2E101A004A5B85 /* LoginPresenter.swift in Sources */,
 				CE2421F32A2E229D004A5B85 /* Entity.swift in Sources */,
+				CE5DD3D42A3197CE001FEA17 /* RegisterPresenter.swift in Sources */,
 				CE28E3F02A2ADE3800663DA5 /* AppDelegate.swift in Sources */,
 				CE28E3F22A2ADE3800663DA5 /* SceneDelegate.swift in Sources */,
+				CE5DD3CF2A30B1AB001FEA17 /* AuthRouter.swift in Sources */,
 				CE2421FC2A2F8716004A5B85 /* LoginViewController.swift in Sources */,
 				CE28E4082A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift in Sources */,
 			);

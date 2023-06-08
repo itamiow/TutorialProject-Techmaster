@@ -2,12 +2,14 @@ PODS:
   - Alamofire (5.7.1)
   - MockingbirdFramework (0.20.0)
   - Nimble (12.0.1)
+  - ProgressHUD (13.6.2)
   - Quick (7.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - MockingbirdFramework (~> 0.20)
   - Nimble
+  - ProgressHUD
   - Quick
 
 SPEC REPOS:
@@ -15,14 +17,16 @@ SPEC REPOS:
     - Alamofire
     - MockingbirdFramework
     - Nimble
+    - ProgressHUD
     - Quick
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   MockingbirdFramework: 54e35fbbb47b806c1a1fae2cf3ef99f6eceb55e5
   Nimble: b279b3ca9e094508778aab5c76417be158d3ad04
+  ProgressHUD: 355915c8f033e626788fa9b0d99d06e8691595ab
   Quick: 2ba401c7a6428dd2aa191fbff5cb1f89afcd5ca9
 
-PODFILE CHECKSUM: 58c24cd56edf291926984cdd0113449eab6697b8
+PODFILE CHECKSUM: f61483890a1b951ee2a80cb9fba5bebbd7180caf
 
 COCOAPODS: 1.12.1

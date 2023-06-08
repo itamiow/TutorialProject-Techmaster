@@ -13,7 +13,7 @@ import Mockingbird
 @testable import TutorialProject
 
 class TestLoginPresenter: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("Login") {
             /**
              Step 1: Tạo instance của LoginPresenter

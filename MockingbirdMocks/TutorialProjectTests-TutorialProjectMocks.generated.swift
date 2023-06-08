@@ -26,12 +26,12 @@ public final class LoginDisplayMock: TutorialProject.LoginDisplay, Mockingbird.M
     LoginDisplayMock.mockingbirdContext.sourceLocation = sourceLocation
   }
 
-  // MARK: Mocked `validateFailure`(`message`: String)
-  public func `validateFailure`(`message`: String) -> Void {
-    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`validateFailure`(`message`: String) -> Void", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`message`)], returnType: Swift.ObjectIdentifier((Void).self))) {
+  // MARK: Mocked `validateFailure`(`message`: String, `field`: String)
+  public func `validateFailure`(`message`: String, `field`: String) -> Void {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`validateFailure`(`message`: String, `field`: String) -> Void", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`message`), Mockingbird.ArgumentMatcher(`field`)], returnType: Swift.ObjectIdentifier((Void).self))) {
       self.mockingbirdContext.recordInvocation($0)
       let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
-      if let mkbImpl = mkbImpl as? (String) -> Void { return mkbImpl(`message`) }
+      if let mkbImpl = mkbImpl as? (String, String) -> Void { return mkbImpl(`message`, `field`) }
       if let mkbImpl = mkbImpl as? () -> Void { return mkbImpl() }
       for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
         switch mkbTargetBox.target {
@@ -39,7 +39,7 @@ public final class LoginDisplayMock: TutorialProject.LoginDisplay, Mockingbird.M
           break
         case .object(let mkbObject):
           guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
-          let mkbValue: Void = mkbObject.`validateFailure`(message: `message`)
+          let mkbValue: Void = mkbObject.`validateFailure`(message: `message`, field: `field`)
           self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
           return mkbValue
         }
@@ -49,8 +49,8 @@ public final class LoginDisplayMock: TutorialProject.LoginDisplay, Mockingbird.M
     }
   }
 
-  public func `validateFailure`(`message`: @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> Void, Void> {
-    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> Void, Void>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`validateFailure`(`message`: String) -> Void", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`message`)], returnType: Swift.ObjectIdentifier((Void).self)))
+  public func `validateFailure`(`message`: @autoclosure () -> String, `field`: @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, String) -> Void, Void> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, String) -> Void, Void>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`validateFailure`(`message`: String, `field`: String) -> Void", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`message`), Mockingbird.resolve(`field`)], returnType: Swift.ObjectIdentifier((Void).self)))
   }
 }
 
