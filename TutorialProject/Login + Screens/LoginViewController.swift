@@ -70,6 +70,7 @@ class LoginViewController: UIViewController {
         let username = usernameTF.text ?? ""
         let password = password.text ?? ""
         presenter.login(username: username, password: password)
+     
     }
  
     @IBAction func usernameTextFieldClick(_ sender: UITextField) {
@@ -81,8 +82,8 @@ class LoginViewController: UIViewController {
     @IBAction func registerClick(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let inputNext = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-        inputNext.modalPresentationStyle = .fullScreen
-        self.present(inputNext, animated: true)
+//        inputNext.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(inputNext, animated: true)
     }
 }
 enum ValidateType {
@@ -125,8 +126,10 @@ extension LoginViewController: LoginDisplay {
 extension LoginViewController {
     private func nextLogin() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextLoginlVC = storyboard.instantiateViewController(withIdentifier: "TestLoginViewController")
+        let nextLoginlVC = storyboard.instantiateViewController(withIdentifier: "MainTabbarViewController")
         guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
+        let nav = UINavigationController(rootViewController: nextLoginlVC)
+        nav.setNavigationBarHidden(true, animated: true)
         window.rootViewController = nextLoginlVC
         window.makeKeyAndVisible()
     }

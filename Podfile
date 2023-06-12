@@ -8,6 +8,8 @@ target 'TutorialProject' do
   pod 'ProgressHUD'
   pod 'KeychainSwift', '~> 20.0'
   pod 'MBProgressHUD', '~> 1.2.0'
+  pod "ESTabBarController-swift", '~> 2.8.0'
+
   # Pods for TutorialProject
 target "TutorialProjectTests" do
   pod 'Quick'

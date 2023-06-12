@@ -23,7 +23,7 @@ class TestLoginViewController: UIViewController {
     }
     private func routeLogin() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let LoginlVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let LoginlVC = storyboard.instantiateViewController(withIdentifier: "TestLoginViewController")
         guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
         window.rootViewController = LoginlVC
         window.makeKeyAndVisible()

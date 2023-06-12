@@ -107,6 +107,20 @@
             </objects>
             <point key="canvasLocation" x="1566" y="-777"/>
         </scene>
+        <!--Main Tabbar View Controller-->
+        <scene sceneID="V7V-xl-IU3">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabbarViewController" id="SiW-FV-sb3" customClass="MainTabbarViewController" customModule="TutorialProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3MU-ln-yr1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KB9-yS-mhu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2750" y="-806"/>
+        </scene>
         <!--Register View Controller-->
         <scene sceneID="n2g-km-KaB">
             <objects>
@@ -278,6 +292,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V5h-rE-lyZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2422" y="-27"/>
+        </scene>
+        <!--Test Tabbar View Controller-->
+        <scene sceneID="gHr-Kb-IfR">
+            <objects>
+                <viewController storyboardIdentifier="TestTabbarViewController" id="NT1-lS-qd4" customClass="TestTabbarViewController" customModule="TutorialProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ufj-a0-a64">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="G2x-eN-EGb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3el-6v-16M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3248" y="-27"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="GPd-SO-JTo">
