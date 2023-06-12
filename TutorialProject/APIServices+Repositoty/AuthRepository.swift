@@ -16,15 +16,13 @@ protocol AuthAPISerivce {
                password: String,
                success: ((LoginEntity) -> Void)?,
                failure: ((String?) -> Void)?)
-    
+
     func register(username: String,
                   nickname: String,
                   password: String,
-                
                   success: ((RegisterEntity) -> Void)?,
                   failure: ((String?) -> Void)?)
 }
-
 class AuthAPISerivceImpl: AuthAPISerivce {
     func login(username: String,
                password: String,
@@ -46,11 +44,15 @@ class AuthAPISerivceImpl: AuthAPISerivce {
                 success?(entity)
             case .failure(let error):
                 /// Case API failure
+//                if error.responseCode == 401 {
+//                    failure?("Email da ton tai")
+//                    return
+//                }
+                
                 failure?(error.failureReason) // Tạm. Chưa xử lý lỗi
             }
         }
     }
-    
     func register(username: String,
                   nickname: String,
                   password: String,
@@ -88,22 +90,17 @@ protocol AuthRepository {
                password: String,
                success: ((LoginEntity) -> Void)?,
                failure: ((String?) -> Void)?)
-    
-    
     func register(username: String,
                   nickname: String,
                   password: String,
                   success: ((RegisterEntity) -> Void)?,
-                  failure: ((String?) -> Void)?) 
+                  failure: ((String?) -> Void)?)
+    func logout(success: ((LogoutEntity) -> Void)?,
+                failure: ((String?) -> Void)?)
 }
-
-
-
 class AuthRepositoryImpl: AuthRepository {
-
-    
+   
     var authApiService: AuthAPISerivce
-    
     init(authApiService: AuthAPISerivce) {
         self.authApiService = authApiService
     }
@@ -119,6 +116,9 @@ class AuthRepositoryImpl: AuthRepository {
                   success: ((RegisterEntity) -> Void)?,
                   failure: ((String?) -> Void)?) {
         authApiService.register(username: username, nickname: nickname, password: password, success: success, failure: failure)
+    }
+    func logout(success: ((LogoutEntity) -> Void)?, failure: ((String?) -> Void)?) {
+        
     }
     
 }

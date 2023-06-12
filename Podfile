@@ -6,6 +6,8 @@ target 'TutorialProject' do
   use_frameworks!
   pod 'Alamofire'
   pod 'ProgressHUD'
+  pod 'KeychainSwift', '~> 20.0'
+  pod 'MBProgressHUD', '~> 1.2.0'
   # Pods for TutorialProject
 target "TutorialProjectTests" do
   pod 'Quick'

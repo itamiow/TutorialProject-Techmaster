@@ -51,6 +51,15 @@ class TutoriallViewController: UIViewController{
         
         myCollectionView.reloadData()
     }
+    
+    private func routeToAuthNavigation() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        
+      
+        
+    }
+  
 }
 extension TutoriallViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     /**
@@ -73,12 +82,14 @@ extension TutoriallViewController: UICollectionViewDataSource, UICollectionViewD
             guard let self = self else {return}
             DispatchQueue.main.async {
                 if indexPath.row == self.models.count - 1 {
+                    
+                    UserDefaultService.shared.completedTutorial = true
+
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let input = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                     input.modalPresentationStyle = .fullScreen
                     self.present(input, animated: true)
                 }
-                
                 self.scrollToNextCell()
             }
         }

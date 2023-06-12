@@ -50,7 +50,5 @@ enum AuthRouter: URLRequestConvertible {
         }
         request.timeoutInterval = 30 // 30s
         return request
-        
     }
-    
 }

@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol RegisterDisplay {
+    func registersucces()
+    func showLoading(isProgress: Bool)
     func validatefailure(message: String, type: ValidateTyPes)
-    func showAlertView(message: String)
+    func registerFailure(errorMsg: String?)
+    func showAlertSuccess()
 }
 
 
@@ -41,18 +45,16 @@ class RegisterViewController: UIViewController {
         /**
          Khởi tại instance RegisterPresenter
          */
-        presenTer = RegisterPresenterImpl(conTroller: self, authReposiTory: authRepository)
+        presenTer = RegisterPresenterImpl(registerVC: self, authRepository: authRepository)
         
         setupUIRegister()
     }
     func setupUIRegister() {
-        myAvatarImage.image = UIImage(named: "welcome")
-        myAvatarImage.contentMode = .scaleAspectFill
         regisTerLabel.text = "Register"
         regisTerLabel.font = .boldSystemFont(ofSize: 30)
-        nickNameTextField.placeholder = "Username: "
-        userNameTexField1.placeholder = "Password: "
-        passWordTextField.placeholder = "Passwordconfirmation: "
+//        userNameTexField1.placeholder = "Username: "
+//        nickNameTextField.placeholder = "Email: "
+//        passWordTextField.placeholder = "Password: "
         nickNameTextField.keyboardType = .emailAddress
         
         regisTerButton.tintColor = .white
@@ -80,19 +82,16 @@ class RegisterViewController: UIViewController {
         userNameLabel.isHidden = true
         passWordLabel.isHidden = true
     }
-    
-  
-    
-    
     @IBAction func handleRegisterButton(_ sender: UIButton) {
+//        userNameLabel.isHidden = false
+//        nickNameLabel.isHidden = false
+//        passWordLabel.isHidden = false
+        
         let username = userNameTexField1.text ?? ""
         let nickname = nickNameTextField.text ?? ""
         let password = passWordTextField.text ?? ""
         presenTer.register(username: username, nickname: nickname, password: password)
     }
-    
-    
-    
     @IBAction func loginClick(_ sender: UIButton) {
         dismiss(animated: true)
     }
@@ -103,9 +102,39 @@ enum ValidateTyPes {
     case username
     case password
 }
-
 extension RegisterViewController: RegisterDisplay {
-  
+    func showAlertSuccess() {
+        let showAlert = UIAlertController(title: "Notification!", message: "Register Success", preferredStyle: .alert)
+        showAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+            // chuyen man
+            self.registerCLick()
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let nextRegisterVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+//            guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
+//            window.rootViewController = nextRegisterVC
+//            window.makeKeyAndVisible()
+        }))
+        self.present(showAlert, animated: true)
+    }
+    
+    func registersucces() {
+       registerCLick()
+    }
+
+    func registerFailure(errorMsg: String?) {
+        let showAlert = UIAlertController(title: "Register Failure", message: errorMsg, preferredStyle: .alert)
+        showAlert.addAction(UIAlertAction(title: "OK", style: .default))
+            
+        self.present(showAlert, animated: true)
+    }
+    
+    func showLoading(isProgress: Bool) {
+        if isProgress {
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+        } else {
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
+    }
     func validatefailure(message: String, type: ValidateTyPes) {
         switch type {
         case .username:
@@ -122,8 +151,13 @@ extension RegisterViewController: RegisterDisplay {
             passWordLabel.textColor = .red
         }
     }
-        
-    func showAlertView(message: String) {
-        registerFailure(message: message)
+}
+extension RegisterViewController {
+    private func registerCLick() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextRegisterVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
+        window.rootViewController = nextRegisterVC
+        window.makeKeyAndVisible()
     }
 }

@@ -7,107 +7,113 @@
 
 import Foundation
 import UIKit
-import ProgressHUD
+import MBProgressHUD
+
 protocol RegisterPresenter {
     func register(username: String, nickname: String, password: String)
 }
 
 class RegisterPresenterImpl: RegisterPresenter {
-    var conTroller: RegisterDisplay
-    var authReposiTory: AuthRepository
     
-    init(conTroller: RegisterDisplay, authReposiTory: AuthRepository) {
-        self.conTroller = conTroller
-        self.authReposiTory = authReposiTory
+    var registerVC: RegisterDisplay
+    var authRepository: AuthRepository
+    
+    init(registerVC: RegisterDisplay, authRepository: AuthRepository) {
+        self.registerVC = registerVC
+        self.authRepository = authRepository
     }
     
-    func register(username: String, nickname: String, password: String) {
-        ProgressHUD.fontStatus = .boldSystemFont(ofSize: 25)
-        ProgressHUD.colorProgress = .systemBlue
-        ProgressHUD.animationType = .lineSpinFade
-        ProgressHUD.show()
-        
+    private func registerValidateFrom(username: String, nickname: String, password: String) -> Bool{
+        var isvalid = true
         if username.isEmpty {
-            conTroller.validatefailure(message: "Username is required", type: .username)
-            ProgressHUD.dismiss()
-            return
-        }
-        if username.count < 6 {
-            conTroller.validatefailure(message: "Username must be at least 6 characters", type: .username)
-            ProgressHUD.dismiss()
-            return
-        }
-        if username.count > 40 {
-            conTroller.validatefailure(message: "Username cannot be more than 40 characters", type: .username)
-            ProgressHUD.dismiss()
-            return
-        }
-        
-        if username.contains(" ") == true {
-            conTroller.validatefailure(message: "Username does not allow the use of space", type: .username)
-            ProgressHUD.dismiss()
-            return
+            isvalid = false
+            registerVC.validatefailure(message: "Username is required", type: .username)
+        } else if username.count < 4 {
+            isvalid = false
+            registerVC.validatefailure(message: "Username must be at least 4 characters", type: .username)
+        } else if username.count > 40 {
+            isvalid = false
+            registerVC.validatefailure(message: "Username can't be longer than 40 characters", type: .username)
+        } else {
+            let usernameValidator = UsernameValidator(username: username)
+            let isUsernameValid = usernameValidator.isValid()
+            if !isUsernameValid {
+                isvalid = false
+                registerVC.validatefailure(message: "Username invalid", type: .username)
+            }
         }
         
         if nickname.isEmpty {
-            conTroller.validatefailure(message: "Email is required", type: .nickname)
-            ProgressHUD.dismiss()
-            return
-        }
-        if nickname.count < 4 {
-            conTroller.validatefailure(message: "Email is required", type: .nickname)
-            ProgressHUD.dismiss()
-            return
-        }
-        if nickname.count > 40 {
-            conTroller.validatefailure(message: "Email is required", type: .nickname)
-            ProgressHUD.dismiss()
-            return
-        }
-        if nickname.contains(" ") == true {
-            conTroller.validatefailure(message: "Email is required", type: .nickname)
-            ProgressHUD.dismiss()
-            return
-        }
-        if password.isEmpty {
-            conTroller.validatefailure(message: "Password is required", type: .password)
-            ProgressHUD.dismiss()
-            return
-        }
-        if password.count < 6 {
-            conTroller.validatefailure(message: "Password must be at least 6 characters", type: .password)
-            ProgressHUD.dismiss()
-            return
-        }
-        if password.count > 40 {
-            conTroller.validatefailure(message: "Password cannot be more than 40 characters", type: .password)
-            ProgressHUD.dismiss()
-            return
-        }
-        if password.contains(" ") == true {
-            conTroller.validatefailure(message: "Password does not allow the use of space", type: .password)
-            ProgressHUD.dismiss()
-            return
+            isvalid = false
+            registerVC.validatefailure(message: "Email is required", type: .nickname)
+        } else if nickname.count < 4 {
+            isvalid = false
+            registerVC.validatefailure(message: "Email must be at least 4 characters", type: .nickname)
+        } else if nickname.count > 40 {
+            isvalid = false
+            registerVC.validatefailure(message: "Email can't be longer than 40 characters", type: .nickname)
+        } else {
+            let nicknameValidator = NicknameValidator(nickname: nickname)
+            let isNicknameValid = nicknameValidator.isValid()
+            if !isNicknameValid {
+                isvalid = false
+                registerVC.validatefailure(message: "Email invalid", type: .nickname)
+            }
         }
         
-        authReposiTory.register(username: username, nickname: nickname, password: password) {response in  ProgressHUD.dismiss() }
-      
-    failure: {[weak self] errorMsg in
-        guard let self = self else {return}
-        ProgressHUD.dismiss()
-        let message = "Registration failed"
-        self.conTroller.showAlertView(message: message)
-        return
-    }
-    }
-}
-extension UIViewController {
-    func registerFailure(message: String) {
-        let alert = UIAlertController(title: "Register Failure!", message: message, preferredStyle: .alert)
-        let actionOK = UIAlertAction(title: "Ok", style: .default) {_ in
-            print("actionOK is Click")
+        if password.isEmpty {
+            isvalid = false
+            registerVC.validatefailure(message: "Password is required", type: .password)
+        } else if password.count < 4 {
+            isvalid = false
+            registerVC.validatefailure(message: "Password must be at least 4 characters", type: .password)
+        } else if password.count > 40 {
+            isvalid = false
+            registerVC.validatefailure(message: "Password can't be longer than 40 characters", type: .password)
+        } else {
+            let passwordValidator = PasswordValidator(password: password)
+            let isPassWordValid = passwordValidator.isValid()
+            if !isPassWordValid {
+                isvalid = false
+                registerVC.validatefailure(message: "Password invalid", type: .password)
+            }
         }
-        alert.addAction(actionOK)
-        self.present(alert, animated: true)
+        return isvalid
+    }
+
+    func register(username: String, nickname: String, password: String) {
+        let isValid = registerValidateFrom(username: username, nickname: nickname, password: password)
+        
+        guard isValid else {return}
+        
+        registerVC.showLoading(isProgress: true)
+        authRepository.register(username: username, nickname: nickname, password: password) { [weak self] registerEntity in
+            guard let self = self else {return}
+            self.registerVC.showLoading(isProgress: false)
+            if let accessToken = registerEntity.accessToken, !accessToken.isEmpty {
+                AuthService.share.accessToken = accessToken
+//                self.registerVC.registersucces()
+                // đăng kí thành công thì showAlert
+                self.registerVC.showAlertSuccess()
+            } else {
+                self.registerVC.registerFailure(errorMsg: "Something went wrong!")
+            }
+            
+        } failure: { [weak self] apiError in
+            guard let self = self else {return}
+            self.registerVC.showLoading(isProgress: false)
+            self.registerVC.registerFailure(errorMsg: apiError ?? "Something went wrong!")
+        }
     }
 }
+
+//extension UIViewController {
+//    func registerFailure(message: String) {
+//        let alert = UIAlertController(title: "Register Failure!", message: message, preferredStyle: .alert)
+//        let actionOK = UIAlertAction(title: "Ok", style: .default) {_ in
+//            print("actionOK is Click")
+//        }
+//        alert.addAction(actionOK)
+//        self.present(alert, animated: true)
+//    }
+//}
