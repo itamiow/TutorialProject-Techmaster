@@ -47,7 +47,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tutorialVC = storyboard.instantiateViewController(withIdentifier: "TutoriallViewController")
         guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
-        window.rootViewController = tutorialVC
+        let nv = UINavigationController(rootViewController: tutorialVC)
+        nv.setNavigationBarHidden(true, animated: true)
+        window.rootViewController = nv
         window.makeKeyAndVisible()
     }
     private func routeLogin() {

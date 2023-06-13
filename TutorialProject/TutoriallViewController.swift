@@ -24,13 +24,24 @@ class TutoriallViewController: UIViewController{
                                DataSoure(image: "Porto", title1: "Đầu tiên hãy đến Porto", title2: "Đi thôi", button: "Start"),
     ]
     
+//    var heightItemCell: CGFloat {
+//        var bottomPadding: CGFloat = 0
+//        if #available(iOS 11.0, *) {
+//            let window = UIApplication.shared.keyWindow
+//            bottomPadding = window?.safeAreaInsets.bottom ?? 0
+//        }
+//        let height = UIScreen.main.bounds.height - bottomPadding
+//        return height
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollection()
-        // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func setupCollection() {
+        myCollectionView.contentInsetAdjustmentBehavior = .never
         myCollectionView.dataSource = self
         myCollectionView.delegate = self
         myCollectionView.isPagingEnabled = true // cuộn phân trang
@@ -38,30 +49,24 @@ class TutoriallViewController: UIViewController{
         myCollectionView.isScrollEnabled = true // khoá chế độ cuộn
         myCollectionView.showsVerticalScrollIndicator = false // giá trị false sẽ tắt hiển thị thanh indicator, thanh chiều dọc
         myCollectionView.showsHorizontalScrollIndicator = false // giá trị false sẽ tắt hiển thị thanh indicator, thanh chiều ngang
-        
+        myCollectionView.register(UINib(nibName: "ItemSection1CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ItemSection1CollectionViewCell")
+
         if let flowLayout = myCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.minimumLineSpacing  = 0 // khoảng cách các dòng theo chiều dọc, trục y
             flowLayout.minimumInteritemSpacing = 0 // khoảng cách các dòng theo chiều ngang, trục x
             flowLayout.scrollDirection = .horizontal // chuyển cuộn trang ngang, dọc
             flowLayout.estimatedItemSize = .zero
-            
-            flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height) //chỉnh sửa kích thước ảnh
+            flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+//            flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: heightItemCell)
+            //chỉnh sửa kích thước ảnh
         }
-        myCollectionView.register(UINib(nibName: "ItemSection1CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ItemSection1CollectionViewCell")
         
         myCollectionView.reloadData()
     }
     
-    private func routeToAuthNavigation() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        
-      
-        
-    }
   
 }
-extension TutoriallViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension TutoriallViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     /**
      mặc định sẽ là 1
      định nghĩa số section trong 1 collectionview
@@ -74,6 +79,7 @@ extension TutoriallViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         models.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let lisItem = models[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemSection1CollectionViewCell", for: indexPath) as! ItemSection1CollectionViewCell
@@ -86,9 +92,12 @@ extension TutoriallViewController: UICollectionViewDataSource, UICollectionViewD
                     UserDefaultService.shared.completedTutorial = true
 
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let input = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                    input.modalPresentationStyle = .fullScreen
-                    self.present(input, animated: true)
+                    let tutorialVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                    guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
+                    let nv = UINavigationController(rootViewController: tutorialVC)
+                    nv.setNavigationBarHidden(true, animated: true)
+                    window.rootViewController = nv
+                    window.makeKeyAndVisible()
                 }
                 self.scrollToNextCell()
             }
@@ -96,10 +105,13 @@ extension TutoriallViewController: UICollectionViewDataSource, UICollectionViewD
         return cell
     }
     
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//    }
     func scrollToNextCell() {
         //lấy kích thước cell
         let cellSize = CGSizeMake(self.view.frame.width, self.view.frame.height);
-        
+//        let cellSize = CGSizeMake(self.view.frame.width, heightItemCell);
         //get current content Offset of the Collection view
         let contentOffset = myCollectionView.contentOffset
         

@@ -33,7 +33,6 @@
 		CEBDC9CB2A334ABF0042DF97 /* UserDefaultServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDC9CA2A334ABF0042DF97 /* UserDefaultServices.swift */; };
 		CEBDC9CD2A33561D0042DF97 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDC9CC2A33561D0042DF97 /* AuthService.swift */; };
 		CEBDC9CF2A335B760042DF97 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDC9CE2A335B760042DF97 /* TestLoginViewController.swift */; };
-		CEBDC9D22A335FCC0042DF97 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDC9D12A335FCC0042DF97 /* Validator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +77,6 @@
 		CEBDC9CA2A334ABF0042DF97 /* UserDefaultServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultServices.swift; sourceTree = "<group>"; };
 		CEBDC9CC2A33561D0042DF97 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		CEBDC9CE2A335B760042DF97 /* TestLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginViewController.swift; sourceTree = "<group>"; };
-		CEBDC9D12A335FCC0042DF97 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = ../../../Validator.swift; sourceTree = "<group>"; };
 		D19ADBC27A0EC2F1431AAB88 /* Pods-TutorialProject-TutorialProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TutorialProject-TutorialProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-TutorialProject-TutorialProjectTests/Pods-TutorialProject-TutorialProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DF60AFE8A250A94AA76E043D /* Pods-TutorialProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TutorialProject.debug.xcconfig"; path = "Target Support Files/Pods-TutorialProject/Pods-TutorialProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,13 +173,13 @@
 			path = RegisterViewController;
 			sourceTree = "<group>";
 		};
-		CE2601562A374B8400A99C4D /* navi */ = {
+		CE2601562A374B8400A99C4D /* naviTabbar */ = {
 			isa = PBXGroup;
 			children = (
 				CE2601572A374BA500A99C4D /* MaintabbarViewcontroller.swift */,
 				CE26015B2A37524200A99C4D /* CustomStyleTabBarContentView.swift */,
 			);
-			path = navi;
+			path = naviTabbar;
 			sourceTree = "<group>";
 		};
 		CE28E3E32A2ADE3800663DA5 = {
@@ -208,12 +206,11 @@
 		CE28E3EE2A2ADE3800663DA5 /* TutorialProject */ = {
 			isa = PBXGroup;
 			children = (
-				CE2601562A374B8400A99C4D /* navi */,
-				CEBDC9D02A335EE80042DF97 /* Validator */,
 				CE2421F12A2E228C004A5B85 /* Entity */,
 				CEBDC9C92A334AA10042DF97 /* Servisces */,
 				CE2421F42A2E23F5004A5B85 /* APIServices+Repositoty */,
 				CE5DD3D02A30B2A5001FEA17 /* NetWork */,
+				CE2601562A374B8400A99C4D /* naviTabbar */,
 				CE2421FE2A302298004A5B85 /* RegisterViewController */,
 				CE2421F72A2ED2DC004A5B85 /* Login + Screens */,
 				CE28E3EF2A2ADE3800663DA5 /* AppDelegate.swift */,
@@ -253,14 +250,6 @@
 				CEBDC9CC2A33561D0042DF97 /* AuthService.swift */,
 			);
 			path = Servisces;
-			sourceTree = "<group>";
-		};
-		CEBDC9D02A335EE80042DF97 /* Validator */ = {
-			isa = PBXGroup;
-			children = (
-				CEBDC9D12A335FCC0042DF97 /* Validator.swift */,
-			);
-			path = Validator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,7 +478,6 @@
 				CE28E3F02A2ADE3800663DA5 /* AppDelegate.swift in Sources */,
 				CE28E3F22A2ADE3800663DA5 /* SceneDelegate.swift in Sources */,
 				CE5DD3CF2A30B1AB001FEA17 /* AuthRouter.swift in Sources */,
-				CEBDC9D22A335FCC0042DF97 /* Validator.swift in Sources */,
 				CE2421FC2A2F8716004A5B85 /* LoginViewController.swift in Sources */,
 				CEBDC9CD2A33561D0042DF97 /* AuthService.swift in Sources */,
 				CEBDC9CB2A334ABF0042DF97 /* UserDefaultServices.swift in Sources */,

@@ -39,13 +39,6 @@ class LoginPresenterImpl: LoginPresenter {
         } else if username.count > 40 {
             isValid = false
             loginVC.validateFailure(message: "Username can't be longer than 40 characters", type: .userName)
-        } else {
-            let usernameValidator = UsernameValidator(username: username)
-            let isUsernameValid = usernameValidator.isValid()
-            if !isUsernameValid {
-                isValid = false
-                loginVC.validateFailure(message: "Username invalid", type: .userName)
-            }
         }
         //Check validate password
         if password.isEmpty {
@@ -57,13 +50,6 @@ class LoginPresenterImpl: LoginPresenter {
         } else if password.count > 40 {
             isValid = false
             loginVC.validateFailure(message: "Password can't be longer than 40 characters", type: .password)
-        } else {
-            let passwordValidator = PasswordValidator(password: password)
-            let isPasswordValid = passwordValidator.isValid()
-            if !isPasswordValid {
-                isValid = false
-                loginVC.validateFailure(message: "Password invalid", type: .password)
-            }
         }
         return isValid
     }

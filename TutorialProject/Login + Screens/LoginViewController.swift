@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
         
         setupUI()
         super.viewDidLoad()
-      
+        
     }
     func setupUI(){
         loginLabel.font = .boldSystemFont(ofSize: 30)
@@ -63,26 +63,26 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 10
         loginButton.tintColor = .white
     }
-
+    
     @IBAction func handleLoginTap(sender: UIButton) {
-//        usernameLabel.isHidden = false
-//        passwordLabel.isHidden = false
+        //        usernameLabel.isHidden = false
+        //        passwordLabel.isHidden = false
         let username = usernameTF.text ?? ""
         let password = password.text ?? ""
         presenter.login(username: username, password: password)
-     
+        
     }
- 
+    
     @IBAction func usernameTextFieldClick(_ sender: UITextField) {
         usernameLabel.isHidden = true
     }
     @IBAction func PasswordTextFieldClick(_ sender: UITextField) {
         passwordLabel.isHidden = true
-    }  
+    }
     @IBAction func registerClick(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let inputNext = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-//        inputNext.modalPresentationStyle = .fullScreen
+        //        inputNext.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(inputNext, animated: true)
     }
 }
@@ -103,12 +103,12 @@ extension LoginViewController: LoginDisplay {
     }
     
     func showloading(isShow: Bool) {
-            if isShow {
-                MBProgressHUD.showAdded(to: self.view, animated: true)
-            } else {
-                MBProgressHUD.hide(for: self.view, animated: true)
-            }
+        if isShow {
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+        } else {
+            MBProgressHUD.hide(for: self.view, animated: true)
         }
+    }
     func validateFailure(message: String, type: ValidateType) {
         switch type {
         case .userName:
@@ -120,7 +120,6 @@ extension LoginViewController: LoginDisplay {
             passwordLabel.text = message
             passwordLabel.textColor = .red
         }
-       
     }
 }
 extension LoginViewController {
@@ -130,7 +129,7 @@ extension LoginViewController {
         guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
         let nav = UINavigationController(rootViewController: nextLoginlVC)
         nav.setNavigationBarHidden(true, animated: true)
-        window.rootViewController = nextLoginlVC
+        window.rootViewController = nav
         window.makeKeyAndVisible()
     }
 }

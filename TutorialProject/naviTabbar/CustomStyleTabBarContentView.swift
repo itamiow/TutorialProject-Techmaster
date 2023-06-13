@@ -17,8 +17,8 @@ class CustomStyleTabBarContentView: ESTabBarItemContentView {
         iconColor = UIColor.black
         
         /// Selected
-        highlightTextColor = UIColor.green
-        highlightIconColor = UIColor.green
+        highlightTextColor = UIColor.systemIndigo
+        highlightIconColor = UIColor.systemIndigo
     }
     
 //    override var selected: Bool {
