@@ -11,7 +11,7 @@ import Foundation
 
 class UserDefaultService {
     
-    // khoi tao 1 instance cua class
+    // khởi tạo 1 instance của class
     static var shared = UserDefaultService()
     private var standard = UserDefaults.standard
     

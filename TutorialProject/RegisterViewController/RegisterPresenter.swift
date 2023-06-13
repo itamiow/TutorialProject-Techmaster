@@ -34,14 +34,7 @@ class RegisterPresenterImpl: RegisterPresenter {
         } else if username.count > 40 {
             isvalid = false
             registerVC.validatefailure(message: "Username can't be longer than 40 characters", type: .username)
-        } else {
-            let usernameValidator = UsernameValidator(username: username)
-            let isUsernameValid = usernameValidator.isValid()
-            if !isUsernameValid {
-                isvalid = false
-                registerVC.validatefailure(message: "Username invalid", type: .username)
-            }
-        }
+        } 
         
         if nickname.isEmpty {
             isvalid = false
@@ -52,13 +45,6 @@ class RegisterPresenterImpl: RegisterPresenter {
         } else if nickname.count > 40 {
             isvalid = false
             registerVC.validatefailure(message: "Email can't be longer than 40 characters", type: .nickname)
-        } else {
-            let nicknameValidator = NicknameValidator(nickname: nickname)
-            let isNicknameValid = nicknameValidator.isValid()
-            if !isNicknameValid {
-                isvalid = false
-                registerVC.validatefailure(message: "Email invalid", type: .nickname)
-            }
         }
         
         if password.isEmpty {
@@ -70,13 +56,6 @@ class RegisterPresenterImpl: RegisterPresenter {
         } else if password.count > 40 {
             isvalid = false
             registerVC.validatefailure(message: "Password can't be longer than 40 characters", type: .password)
-        } else {
-            let passwordValidator = PasswordValidator(password: password)
-            let isPassWordValid = passwordValidator.isValid()
-            if !isPassWordValid {
-                isvalid = false
-                registerVC.validatefailure(message: "Password invalid", type: .password)
-            }
         }
         return isvalid
     }

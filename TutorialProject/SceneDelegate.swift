@@ -47,24 +47,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tutorialVC = storyboard.instantiateViewController(withIdentifier: "TutoriallViewController")
         guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
-        window.rootViewController = tutorialVC
+        let nv = UINavigationController(rootViewController: tutorialVC)
+        nv.setNavigationBarHidden(true, animated: true)
+        window.rootViewController = nv
         window.makeKeyAndVisible()
     }
     private func routeLogin() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let LoginlVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
-        window.rootViewController = LoginlVC
+        let navi = UINavigationController(rootViewController: LoginlVC)
+        navi.setNavigationBarHidden(true, animated: true)
+        window.rootViewController = navi
         window.makeKeyAndVisible()
     }
     private func nextLogin() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextLoginlVC = storyboard.instantiateViewController(withIdentifier: "TestLoginViewController")
+        let nextLoginlVC = storyboard.instantiateViewController(withIdentifier: "MainTabbarViewController")
         guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
-        window.rootViewController = nextLoginlVC
+        let nav = UINavigationController(rootViewController: nextLoginlVC)
+        nav.setNavigationBarHidden(true, animated: true)
+        window.rootViewController = nav
         window.makeKeyAndVisible()
     }
     
+ 
     
     
     func sceneDidDisconnect(_ scene: UIScene) {

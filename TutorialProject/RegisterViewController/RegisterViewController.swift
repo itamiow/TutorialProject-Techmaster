@@ -93,7 +93,7 @@ class RegisterViewController: UIViewController {
         presenTer.register(username: username, nickname: nickname, password: password)
     }
     @IBAction func loginClick(_ sender: UIButton) {
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }
 

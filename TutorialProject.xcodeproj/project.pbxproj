@@ -17,6 +17,8 @@
 		CE2421F62A2E242C004A5B85 /* AuthAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421F52A2E242C004A5B85 /* AuthAPIService.swift */; };
 		CE2421FC2A2F8716004A5B85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421E72A2E1000004A5B85 /* LoginViewController.swift */; };
 		CE2422002A3022CB004A5B85 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2421FF2A3022CB004A5B85 /* RegisterViewController.swift */; };
+		CE2601582A374BA500A99C4D /* MaintabbarViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2601572A374BA500A99C4D /* MaintabbarViewcontroller.swift */; };
+		CE26015C2A37524200A99C4D /* CustomStyleTabBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26015B2A37524200A99C4D /* CustomStyleTabBarContentView.swift */; };
 		CE28E3F02A2ADE3800663DA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28E3EF2A2ADE3800663DA5 /* AppDelegate.swift */; };
 		CE28E3F22A2ADE3800663DA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28E3F12A2ADE3800663DA5 /* SceneDelegate.swift */; };
 		CE28E3F72A2ADE3800663DA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE28E3F52A2ADE3800663DA5 /* Main.storyboard */; };
@@ -31,7 +33,6 @@
 		CEBDC9CB2A334ABF0042DF97 /* UserDefaultServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDC9CA2A334ABF0042DF97 /* UserDefaultServices.swift */; };
 		CEBDC9CD2A33561D0042DF97 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDC9CC2A33561D0042DF97 /* AuthService.swift */; };
 		CEBDC9CF2A335B760042DF97 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDC9CE2A335B760042DF97 /* TestLoginViewController.swift */; };
-		CEBDC9D22A335FCC0042DF97 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBDC9D12A335FCC0042DF97 /* Validator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		CE2421F22A2E229D004A5B85 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		CE2421F52A2E242C004A5B85 /* AuthAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPIService.swift; sourceTree = "<group>"; };
 		CE2421FF2A3022CB004A5B85 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CE2601572A374BA500A99C4D /* MaintabbarViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintabbarViewcontroller.swift; sourceTree = "<group>"; };
+		CE26015B2A37524200A99C4D /* CustomStyleTabBarContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStyleTabBarContentView.swift; sourceTree = "<group>"; };
 		CE28E3EC2A2ADE3800663DA5 /* TutorialProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorialProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE28E3EF2A2ADE3800663DA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE28E3F12A2ADE3800663DA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +77,6 @@
 		CEBDC9CA2A334ABF0042DF97 /* UserDefaultServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultServices.swift; sourceTree = "<group>"; };
 		CEBDC9CC2A33561D0042DF97 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		CEBDC9CE2A335B760042DF97 /* TestLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginViewController.swift; sourceTree = "<group>"; };
-		CEBDC9D12A335FCC0042DF97 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = ../../../Validator.swift; sourceTree = "<group>"; };
 		D19ADBC27A0EC2F1431AAB88 /* Pods-TutorialProject-TutorialProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TutorialProject-TutorialProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-TutorialProject-TutorialProjectTests/Pods-TutorialProject-TutorialProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DF60AFE8A250A94AA76E043D /* Pods-TutorialProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TutorialProject.debug.xcconfig"; path = "Target Support Files/Pods-TutorialProject/Pods-TutorialProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +173,15 @@
 			path = RegisterViewController;
 			sourceTree = "<group>";
 		};
+		CE2601562A374B8400A99C4D /* naviTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				CE2601572A374BA500A99C4D /* MaintabbarViewcontroller.swift */,
+				CE26015B2A37524200A99C4D /* CustomStyleTabBarContentView.swift */,
+			);
+			path = naviTabbar;
+			sourceTree = "<group>";
+		};
 		CE28E3E32A2ADE3800663DA5 = {
 			isa = PBXGroup;
 			children = (
@@ -195,11 +206,11 @@
 		CE28E3EE2A2ADE3800663DA5 /* TutorialProject */ = {
 			isa = PBXGroup;
 			children = (
-				CEBDC9D02A335EE80042DF97 /* Validator */,
 				CE2421F12A2E228C004A5B85 /* Entity */,
 				CEBDC9C92A334AA10042DF97 /* Servisces */,
 				CE2421F42A2E23F5004A5B85 /* APIServices+Repositoty */,
 				CE5DD3D02A30B2A5001FEA17 /* NetWork */,
+				CE2601562A374B8400A99C4D /* naviTabbar */,
 				CE2421FE2A302298004A5B85 /* RegisterViewController */,
 				CE2421F72A2ED2DC004A5B85 /* Login + Screens */,
 				CE28E3EF2A2ADE3800663DA5 /* AppDelegate.swift */,
@@ -239,14 +250,6 @@
 				CEBDC9CC2A33561D0042DF97 /* AuthService.swift */,
 			);
 			path = Servisces;
-			sourceTree = "<group>";
-		};
-		CEBDC9D02A335EE80042DF97 /* Validator */ = {
-			isa = PBXGroup;
-			children = (
-				CEBDC9D12A335FCC0042DF97 /* Validator.swift */,
-			);
-			path = Validator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,16 +472,17 @@
 				CE28E4092A2ADF3200663DA5 /* TutoriallViewController.swift in Sources */,
 				CE5DD3D22A30B2D6001FEA17 /* Constant.swift in Sources */,
 				CE2421EA2A2E101A004A5B85 /* LoGinPresenter.swift in Sources */,
+				CE2601582A374BA500A99C4D /* MaintabbarViewcontroller.swift in Sources */,
 				CE2421F32A2E229D004A5B85 /* Entity.swift in Sources */,
 				CE5DD3D42A3197CE001FEA17 /* RegisterPresenter.swift in Sources */,
 				CE28E3F02A2ADE3800663DA5 /* AppDelegate.swift in Sources */,
 				CE28E3F22A2ADE3800663DA5 /* SceneDelegate.swift in Sources */,
 				CE5DD3CF2A30B1AB001FEA17 /* AuthRouter.swift in Sources */,
-				CEBDC9D22A335FCC0042DF97 /* Validator.swift in Sources */,
 				CE2421FC2A2F8716004A5B85 /* LoginViewController.swift in Sources */,
 				CEBDC9CD2A33561D0042DF97 /* AuthService.swift in Sources */,
 				CEBDC9CB2A334ABF0042DF97 /* UserDefaultServices.swift in Sources */,
 				CE28E4082A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift in Sources */,
+				CE26015C2A37524200A99C4D /* CustomStyleTabBarContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
