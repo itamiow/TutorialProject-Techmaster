@@ -13,7 +13,7 @@ protocol RegisterPresenter {
     func register(username: String, nickname: String, password: String)
 }
 
-class RegisterPresenterImpl: RegisterPresenter {
+class RegisterPresenterImpl: RegisterPresenter{
     
     var registerVC: RegisterDisplay
     var authRepository: AuthRepository
@@ -25,6 +25,9 @@ class RegisterPresenterImpl: RegisterPresenter {
     
     private func registerValidateFrom(username: String, nickname: String, password: String) -> Bool{
         var isvalid = true
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        
         if username.isEmpty {
             isvalid = false
             registerVC.validatefailure(message: "Username is required", type: .username)
@@ -45,8 +48,11 @@ class RegisterPresenterImpl: RegisterPresenter {
         } else if nickname.count > 40 {
             isvalid = false
             registerVC.validatefailure(message: "Email can't be longer than 40 characters", type: .nickname)
-        }
-        
+        } else if !emailPredicate.evaluate(with: nickname) {
+                isvalid = false
+                registerVC.validatefailure(message: "Invalid email format", type: .nickname)
+            }
+    
         if password.isEmpty {
             isvalid = false
             registerVC.validatefailure(message: "Password is required", type: .password)
@@ -85,14 +91,3 @@ class RegisterPresenterImpl: RegisterPresenter {
         }
     }
 }
-
-//extension UIViewController {
-//    func registerFailure(message: String) {
-//        let alert = UIAlertController(title: "Register Failure!", message: message, preferredStyle: .alert)
-//        let actionOK = UIAlertAction(title: "Ok", style: .default) {_ in
-//            print("actionOK is Click")
-//        }
-//        alert.addAction(actionOK)
-//        self.present(alert, animated: true)
-//    }
-//}

@@ -28,7 +28,7 @@ class TestLoginPresenter: QuickSpec {
              */
             beforeEach {
                 loginDisplayMock = mock(LoginDisplay.self)
-                sut = LoginPresenterImpl(controller: loginDisplayMock)
+//                sut = LoginPresenterImpl(controller: loginDisplayMock)
             }
             
             /**
@@ -48,7 +48,7 @@ class TestLoginPresenter: QuickSpec {
                     sut.login(username: username, password: "testPassword")
                     
                     /// expect
-                    verify(loginDisplayMock.validateFailure(message: "Username is required")).wasCalled()
+                    verify(loginDisplayMock.validateFailure(message: "Username is required", field: <#String#>)).wasCalled()
                 }
             }
         }

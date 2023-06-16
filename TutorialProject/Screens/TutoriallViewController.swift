@@ -87,7 +87,8 @@ extension TutoriallViewController: UICollectionViewDataSource, UICollectionViewD
         cell.didTapSkip = { [weak self] in
             guard let self = self else {return}
             DispatchQueue.main.async {
-                if indexPath.row == self.models.count - 1 {
+                if indexPath.row + 1 == 3 {
+//                if indexPath.row == self.models.count - 1 {
                     
                     UserDefaultService.shared.completedTutorial = true
 
