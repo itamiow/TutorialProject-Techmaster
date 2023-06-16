@@ -2,10 +2,10 @@
 //  LoginPresenter.swift
 //  NewfeedsApp
 //
-//  Created by Minh Tan Vu on 05/06/2023.
 //
 
 import Foundation
+import UIKit
 import MBProgressHUD
 /**
  Xử lý bussiness login
@@ -33,7 +33,6 @@ class LoginPresenterImpl: LoginPresenter {
             isValid = false
             loginVC.validateFailure(message: "Username is required", type: .userName)
         } else if username.count < 4 {
-            
             isValid = false
             loginVC.validateFailure(message: "Username must be at least 4 characters", type: .userName)
         } else if username.count > 40 {

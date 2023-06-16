@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let islogin = AuthService.share.isLoggedIn
             if islogin {
-                nextLogin()
+                gotoHome()
             } else {
                 routeLogin()
             }
@@ -61,11 +61,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = navi
         window.makeKeyAndVisible()
     }
-    private func nextLogin() {
+    private func gotoHome() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextLoginlVC = storyboard.instantiateViewController(withIdentifier: "MainTabbarViewController")
+        let gotoHomeVC = storyboard.instantiateViewController(withIdentifier: "MainTabbarViewController")
         guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
-        let nav = UINavigationController(rootViewController: nextLoginlVC)
+        let nav = UINavigationController(rootViewController: gotoHomeVC)
         nav.setNavigationBarHidden(true, animated: true)
         window.rootViewController = nav
         window.makeKeyAndVisible()

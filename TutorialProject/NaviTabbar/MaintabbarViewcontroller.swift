@@ -7,17 +7,21 @@
 
 import Foundation
 import ESTabBarController_swift
+import MBProgressHUD
+import Alamofire
 
-class MainTabbarViewController: ESTabBarController {
+
+class MainTabbarViewController: ESTabBarController{
+
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().backgroundColor = UIColor.white
-//        UITabBar.appearance().tintColor = .clear
-//        UITabBar.appearance().shadowImage = UIImage()
-//        UITabBar.appearance().backgroundImage = UIImage()
+        //        UITabBar.appearance().tintColor = .clear
+        //        UITabBar.appearance().shadowImage = UIImage()
+        //        UITabBar.appearance().backgroundImage = UIImage()
         setViewControllers([homeVC,settings,highlighter,comment,pinblack], animated: true)
+
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
@@ -28,10 +32,11 @@ class MainTabbarViewController: ESTabBarController {
      */
     lazy var homeVC: UIViewController =  {
         
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestLoginViewController")
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePostViewController")
         viewController.view.backgroundColor = .white
         viewController.tabBarItem = ESTabBarItem(CustomStyleTabBarContentView(),
-                                                 title: "home".uppercased(),
+                                                 // .lowercased(), .uppercased() viết thường, hoa
+                                                 title: "Home".uppercased(),
                                                  // defined 2 ảnh
                                                  // 1 icon là khi chưa chọn
                                                  // 1 icon là khi đã chọn
@@ -43,10 +48,9 @@ class MainTabbarViewController: ESTabBarController {
     } ()
     
     lazy var settings: UIViewController =  {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestLoginViewController")
-        viewController.view.backgroundColor = .systemBlue
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController")
         viewController.tabBarItem = ESTabBarItem(CustomStyleTabBarContentView(),
-                                                 title: "settings".uppercased(),
+                                                 title: "Settings",
                                                  image: UIImage(named: "settings"),
                                                  selectedImage: UIImage(named: "settings"))
         let nav = UINavigationController(rootViewController: viewController)
@@ -54,10 +58,10 @@ class MainTabbarViewController: ESTabBarController {
         return nav } ()
     
     lazy var highlighter: UIViewController =  {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestLoginViewController")
-        viewController.view.backgroundColor = .systemTeal
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePostViewController")
+        viewController.view.backgroundColor = .white
         viewController.tabBarItem = ESTabBarItem(CustomStyleTabBarContentView(),
-                                                 title: "highlighter".uppercased(),
+                                                 title: "Highlighter",
                                                  image: UIImage(named: "highlighter"),
                                                  selectedImage: UIImage(named: "highlighter"))
         let nav = UINavigationController(rootViewController: viewController)
@@ -65,10 +69,10 @@ class MainTabbarViewController: ESTabBarController {
         return nav } ()
     
     lazy var comment: UIViewController =  {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestLoginViewController")
-        viewController.view.backgroundColor = .systemPink
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePostViewController")
+        viewController.view.backgroundColor = .white
         viewController.tabBarItem = ESTabBarItem(CustomStyleTabBarContentView(),
-                                                 title: "comment".uppercased(),
+                                                 title: "Comment",
                                                  image: UIImage(named: "comment"),
                                                  selectedImage: UIImage(named: "comment"))
         let nav = UINavigationController(rootViewController: viewController)
@@ -76,13 +80,14 @@ class MainTabbarViewController: ESTabBarController {
         return nav } ()
     
     lazy var pinblack: UIViewController =  {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestLoginViewController")
-        viewController.view.backgroundColor = .systemGray
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePostViewController")
+        viewController.view.backgroundColor = .white
         viewController.tabBarItem = ESTabBarItem(CustomStyleTabBarContentView(),
-                                                 title: "pinblack".uppercased(),
+                                                 title: "Pin",
                                                  image: UIImage(named: "pinblack"),
                                                  selectedImage: UIImage(named: "pinblack"))
         let nav = UINavigationController(rootViewController: viewController)
         nav.setNavigationBarHidden(true, animated: true)
         return nav } ()
 }
+

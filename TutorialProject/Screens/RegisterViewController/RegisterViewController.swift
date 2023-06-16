@@ -31,7 +31,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var regisTerButton: UIButton!
     
-    var presenTer: RegisterPresenter!
+    var presenter: RegisterPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +45,7 @@ class RegisterViewController: UIViewController {
         /**
          Khởi tại instance RegisterPresenter
          */
-        presenTer = RegisterPresenterImpl(registerVC: self, authRepository: authRepository)
-        
+        presenter = RegisterPresenterImpl(registerVC: self, authRepository: authRepository)
         setupUIRegister()
     }
     func setupUIRegister() {
@@ -83,14 +82,11 @@ class RegisterViewController: UIViewController {
         passWordLabel.isHidden = true
     }
     @IBAction func handleRegisterButton(_ sender: UIButton) {
-//        userNameLabel.isHidden = false
-//        nickNameLabel.isHidden = false
-//        passWordLabel.isHidden = false
-        
+       
         let username = userNameTexField1.text ?? ""
         let nickname = nickNameTextField.text ?? ""
         let password = passWordTextField.text ?? ""
-        presenTer.register(username: username, nickname: nickname, password: password)
+        presenter.register(username: username, nickname: nickname, password: password)
     }
     @IBAction func loginClick(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
@@ -105,7 +101,7 @@ enum ValidateTyPes {
 extension RegisterViewController: RegisterDisplay {
     func showAlertSuccess() {
         let showAlert = UIAlertController(title: "Notification!", message: "Register Success", preferredStyle: .alert)
-        showAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+        showAlert.addAction(UIAlertAction(title: "OK", style: .default) {_ in
             // chuyen man
             self.registerCLick()
 //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -113,7 +109,7 @@ extension RegisterViewController: RegisterDisplay {
 //            guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
 //            window.rootViewController = nextRegisterVC
 //            window.makeKeyAndVisible()
-        }))
+        })
         self.present(showAlert, animated: true)
     }
     
@@ -124,7 +120,6 @@ extension RegisterViewController: RegisterDisplay {
     func registerFailure(errorMsg: String?) {
         let showAlert = UIAlertController(title: "Register Failure", message: errorMsg, preferredStyle: .alert)
         showAlert.addAction(UIAlertAction(title: "OK", style: .default))
-            
         self.present(showAlert, animated: true)
     }
     
@@ -155,9 +150,9 @@ extension RegisterViewController: RegisterDisplay {
 extension RegisterViewController {
     private func registerCLick() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextRegisterVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let gotoLoginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
-        window.rootViewController = nextRegisterVC
+        window.rootViewController = gotoLoginVC
         window.makeKeyAndVisible()
     }
 }
