@@ -19,7 +19,7 @@ class MainTabbarViewController: ESTabBarController{
         //        UITabBar.appearance().tintColor = .clear
         //        UITabBar.appearance().shadowImage = UIImage()
         //        UITabBar.appearance().backgroundImage = UIImage()
-        setViewControllers([homeVC,settings,highlighter,comment,pinblack], animated: true)
+        setViewControllers([homeVC,heart1,comment,pinblack,settings], animated: true)
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -57,13 +57,13 @@ class MainTabbarViewController: ESTabBarController{
         nav.setNavigationBarHidden(true, animated: true)
         return nav } ()
     
-    lazy var highlighter: UIViewController =  {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePostViewController")
+    lazy var heart1: UIViewController =  {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FavoriteViewController")
         viewController.view.backgroundColor = .white
         viewController.tabBarItem = ESTabBarItem(CustomStyleTabBarContentView(),
-                                                 title: "Highlighter",
-                                                 image: UIImage(named: "highlighter"),
-                                                 selectedImage: UIImage(named: "highlighter"))
+                                                 title: "Like",
+                                                 image: UIImage(named: "heart1"),
+                                                 selectedImage: UIImage(named: "heart1"))
         let nav = UINavigationController(rootViewController: viewController)
         nav.setNavigationBarHidden(true, animated: true)
         return nav } ()
@@ -80,7 +80,7 @@ class MainTabbarViewController: ESTabBarController{
         return nav } ()
     
     lazy var pinblack: UIViewController =  {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePostViewController")
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PinPostViewController")
         viewController.view.backgroundColor = .white
         viewController.tabBarItem = ESTabBarItem(CustomStyleTabBarContentView(),
                                                  title: "Pin",

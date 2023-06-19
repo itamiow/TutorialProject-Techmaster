@@ -75,10 +75,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func usernameTextFieldClick(_ sender: UITextField) {
         usernameLabel.isHidden = true
-    }
-    @IBAction func PasswordTextFieldClick(_ sender: UITextField) {
         passwordLabel.isHidden = true
     }
+   
     @IBAction func registerClick(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let inputNext = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController

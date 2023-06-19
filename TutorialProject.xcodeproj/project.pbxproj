@@ -37,6 +37,20 @@
 		CE28E4082A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28E4052A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift */; };
 		CE28E4092A2ADF3200663DA5 /* TutoriallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28E4062A2ADF3200663DA5 /* TutoriallViewController.swift */; };
 		CE30A6F92A3B5CE6005A9D6C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A6F82A3B5CE6005A9D6C /* SettingViewController.swift */; };
+		CE30A6FE2A3F43EC005A9D6C /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A6FD2A3F43EC005A9D6C /* FavoriteRepository.swift */; };
+		CE30A7002A3F47B0005A9D6C /* PinPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A6FF2A3F47B0005A9D6C /* PinPostRepository.swift */; };
+		CE30A7032A3F4AD8005A9D6C /* FavoriteAPISevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A7022A3F4AD8005A9D6C /* FavoriteAPISevices.swift */; };
+		CE30A7052A3F4AFD005A9D6C /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A7042A3F4AFD005A9D6C /* FavoriteRouter.swift */; };
+		CE30A7072A3F59C0005A9D6C /* PinPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A7062A3F59C0005A9D6C /* PinPostRouter.swift */; };
+		CE30A70B2A3F5A25005A9D6C /* PinPostAPISevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A70A2A3F5A25005A9D6C /* PinPostAPISevices.swift */; };
+		CE30A7122A3F5DFE005A9D6C /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE30A70E2A3F5DFE005A9D6C /* FavoriteTableViewCell.xib */; };
+		CE30A7132A3F5DFE005A9D6C /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A70F2A3F5DFE005A9D6C /* FavoriteTableViewCell.swift */; };
+		CE30A7142A3F5DFE005A9D6C /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A7102A3F5DFE005A9D6C /* FavoriteViewController.swift */; };
+		CE30A7152A3F5DFE005A9D6C /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A7112A3F5DFE005A9D6C /* FavoritePresenter.swift */; };
+		CE30A71E2A3FED15005A9D6C /* PinPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE30A71A2A3FED15005A9D6C /* PinPostTableViewCell.xib */; };
+		CE30A71F2A3FED15005A9D6C /* PinPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A71B2A3FED15005A9D6C /* PinPostTableViewCell.swift */; };
+		CE30A7202A3FED15005A9D6C /* PinPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A71C2A3FED15005A9D6C /* PinPostViewController.swift */; };
+		CE30A7212A3FED15005A9D6C /* PinPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A71D2A3FED15005A9D6C /* PinPostPresenter.swift */; };
 		CE5DD3CF2A30B1AB001FEA17 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DD3CE2A30B1AA001FEA17 /* AuthRouter.swift */; };
 		CE5DD3D22A30B2D6001FEA17 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DD3D12A30B2D6001FEA17 /* Constant.swift */; };
 		CE5DD3D42A3197CE001FEA17 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DD3D32A3197CE001FEA17 /* RegisterPresenter.swift */; };
@@ -91,6 +105,20 @@
 		CE28E4052A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSection1CollectionViewCell.swift; sourceTree = "<group>"; };
 		CE28E4062A2ADF3200663DA5 /* TutoriallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutoriallViewController.swift; sourceTree = "<group>"; };
 		CE30A6F82A3B5CE6005A9D6C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CE30A6FD2A3F43EC005A9D6C /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
+		CE30A6FF2A3F47B0005A9D6C /* PinPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPostRepository.swift; sourceTree = "<group>"; };
+		CE30A7022A3F4AD8005A9D6C /* FavoriteAPISevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAPISevices.swift; sourceTree = "<group>"; };
+		CE30A7042A3F4AFD005A9D6C /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
+		CE30A7062A3F59C0005A9D6C /* PinPostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPostRouter.swift; sourceTree = "<group>"; };
+		CE30A70A2A3F5A25005A9D6C /* PinPostAPISevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPostAPISevices.swift; sourceTree = "<group>"; };
+		CE30A70E2A3F5DFE005A9D6C /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
+		CE30A70F2A3F5DFE005A9D6C /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		CE30A7102A3F5DFE005A9D6C /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		CE30A7112A3F5DFE005A9D6C /* FavoritePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
+		CE30A71A2A3FED15005A9D6C /* PinPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinPostTableViewCell.xib; sourceTree = "<group>"; };
+		CE30A71B2A3FED15005A9D6C /* PinPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinPostTableViewCell.swift; sourceTree = "<group>"; };
+		CE30A71C2A3FED15005A9D6C /* PinPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinPostViewController.swift; sourceTree = "<group>"; };
+		CE30A71D2A3FED15005A9D6C /* PinPostPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinPostPresenter.swift; sourceTree = "<group>"; };
 		CE5DD3CE2A30B1AA001FEA17 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		CE5DD3D12A30B2D6001FEA17 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		CE5DD3D32A3197CE001FEA17 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
@@ -187,13 +215,13 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		CE2421F42A2E23F5004A5B85 /* APIServices+Repositoty */ = {
+		CE2421F42A2E23F5004A5B85 /* Login+RegisterAPIServices */ = {
 			isa = PBXGroup;
 			children = (
 				CE2421F52A2E242C004A5B85 /* AuthAPIService.swift */,
 				CE2421EF2A2E21D4004A5B85 /* AuthRepository.swift */,
 			);
-			path = "APIServices+Repositoty";
+			path = "Login+RegisterAPIServices";
 			sourceTree = "<group>";
 		};
 		CE2421F72A2ED2DC004A5B85 /* Login + Screens */ = {
@@ -251,9 +279,13 @@
 				CE2421F12A2E228C004A5B85 /* Entity */,
 				CEBDC9C92A334AA10042DF97 /* Servisces */,
 				CE0107992A39E41F00D6C138 /* PostAPISevices */,
-				CE2421F42A2E23F5004A5B85 /* APIServices+Repositoty */,
+				CE2421F42A2E23F5004A5B85 /* Login+RegisterAPIServices */,
 				CE5DD3D02A30B2A5001FEA17 /* NetWork  */,
+				CE30A7012A3F4AB4005A9D6C /* FavoriteAPISevices */,
+				CE30A6FA2A3F433B005A9D6C /* PinPostAPISevices */,
 				CE2601562A374B8400A99C4D /* NaviTabbar */,
+				CE30A7182A3FED15005A9D6C /* PinPost */,
+				CE30A70C2A3F5DFE005A9D6C /* Favorite */,
 				CEA7B5CF2A396B5800BFE518 /* Screens */,
 				CE28E3EF2A2ADE3800663DA5 /* AppDelegate.swift */,
 				CE28E3F12A2ADE3800663DA5 /* SceneDelegate.swift */,
@@ -280,6 +312,64 @@
 				CE30A6F82A3B5CE6005A9D6C /* SettingViewController.swift */,
 			);
 			path = SettingViewController;
+			sourceTree = "<group>";
+		};
+		CE30A6FA2A3F433B005A9D6C /* PinPostAPISevices */ = {
+			isa = PBXGroup;
+			children = (
+				CE30A6FF2A3F47B0005A9D6C /* PinPostRepository.swift */,
+				CE30A70A2A3F5A25005A9D6C /* PinPostAPISevices.swift */,
+				CE30A7062A3F59C0005A9D6C /* PinPostRouter.swift */,
+			);
+			path = PinPostAPISevices;
+			sourceTree = "<group>";
+		};
+		CE30A7012A3F4AB4005A9D6C /* FavoriteAPISevices */ = {
+			isa = PBXGroup;
+			children = (
+				CE30A7042A3F4AFD005A9D6C /* FavoriteRouter.swift */,
+				CE30A7022A3F4AD8005A9D6C /* FavoriteAPISevices.swift */,
+				CE30A6FD2A3F43EC005A9D6C /* FavoriteRepository.swift */,
+			);
+			path = FavoriteAPISevices;
+			sourceTree = "<group>";
+		};
+		CE30A70C2A3F5DFE005A9D6C /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				CE30A70D2A3F5DFE005A9D6C /* Cells */,
+				CE30A7102A3F5DFE005A9D6C /* FavoriteViewController.swift */,
+				CE30A7112A3F5DFE005A9D6C /* FavoritePresenter.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		CE30A70D2A3F5DFE005A9D6C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE30A70E2A3F5DFE005A9D6C /* FavoriteTableViewCell.xib */,
+				CE30A70F2A3F5DFE005A9D6C /* FavoriteTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CE30A7182A3FED15005A9D6C /* PinPost */ = {
+			isa = PBXGroup;
+			children = (
+				CE30A7192A3FED15005A9D6C /* Cells */,
+				CE30A71C2A3FED15005A9D6C /* PinPostViewController.swift */,
+				CE30A71D2A3FED15005A9D6C /* PinPostPresenter.swift */,
+			);
+			path = PinPost;
+			sourceTree = "<group>";
+		};
+		CE30A7192A3FED15005A9D6C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE30A71A2A3FED15005A9D6C /* PinPostTableViewCell.xib */,
+				CE30A71B2A3FED15005A9D6C /* PinPostTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CE537D3E2A39E36D0085F8DE /* HomeCell */ = {
@@ -417,9 +507,11 @@
 			files = (
 				CE28E3FC2A2ADE3A00663DA5 /* LaunchScreen.storyboard in Resources */,
 				CE28E3F92A2ADE3A00663DA5 /* Assets.xcassets in Resources */,
+				CE30A71E2A3FED15005A9D6C /* PinPostTableViewCell.xib in Resources */,
 				CE28E3F72A2ADE3800663DA5 /* Main.storyboard in Resources */,
 				CE0107A72A39F51800D6C138 /* HomeTableViewCell.xib in Resources */,
 				CE28E4072A2ADF3200663DA5 /* ItemSection1CollectionViewCell.xib in Resources */,
+				CE30A7122A3F5DFE005A9D6C /* FavoriteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,13 +628,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE30A7052A3F4AFD005A9D6C /* FavoriteRouter.swift in Sources */,
 				CE2421F02A2E21D4004A5B85 /* AuthRepository.swift in Sources */,
 				CE2422002A3022CB004A5B85 /* RegisterViewController.swift in Sources */,
 				CE2421F62A2E242C004A5B85 /* AuthAPIService.swift in Sources */,
 				CE28E4092A2ADF3200663DA5 /* TutoriallViewController.swift in Sources */,
 				CE5DD3D22A30B2D6001FEA17 /* Constant.swift in Sources */,
+				CE30A7152A3F5DFE005A9D6C /* FavoritePresenter.swift in Sources */,
 				CE0107A62A39F51800D6C138 /* HomeTableViewCell.swift in Sources */,
 				CE0107A12A39ECA700D6C138 /* PostGetEntity.swift in Sources */,
+				CE30A70B2A3F5A25005A9D6C /* PinPostAPISevices.swift in Sources */,
+				CE30A6FE2A3F43EC005A9D6C /* FavoriteRepository.swift in Sources */,
 				CE2421EA2A2E101A004A5B85 /* LoginPresenter.swift in Sources */,
 				CE2601582A374BA500A99C4D /* MaintabbarViewcontroller.swift in Sources */,
 				CE0107A92A39F5CC00D6C138 /* PostGetPepository.swift in Sources */,
@@ -550,18 +646,26 @@
 				CE5DD3D42A3197CE001FEA17 /* RegisterPresenter.swift in Sources */,
 				CE28E3F02A2ADE3800663DA5 /* AppDelegate.swift in Sources */,
 				CE28E3F22A2ADE3800663DA5 /* SceneDelegate.swift in Sources */,
+				CE30A71F2A3FED15005A9D6C /* PinPostTableViewCell.swift in Sources */,
 				CE5DD3CF2A30B1AB001FEA17 /* AuthRouter.swift in Sources */,
 				CE2421FC2A2F8716004A5B85 /* LoginViewController.swift in Sources */,
 				CE01079B2A39E44500D6C138 /* PostRouter.swift in Sources */,
 				CEBDC9CD2A33561D0042DF97 /* AuthService.swift in Sources */,
 				CE30A6F92A3B5CE6005A9D6C /* SettingViewController.swift in Sources */,
 				CE0107B02A3A250100D6C138 /* HomePostViewController.swift in Sources */,
+				CE30A7132A3F5DFE005A9D6C /* FavoriteTableViewCell.swift in Sources */,
+				CE30A7202A3FED15005A9D6C /* PinPostViewController.swift in Sources */,
+				CE30A7142A3F5DFE005A9D6C /* FavoriteViewController.swift in Sources */,
 				CEA7B5D12A396CB600BFE518 /* MainDefaultUITabbarController.swift in Sources */,
 				CEBDC9CB2A334ABF0042DF97 /* UserDefaultServices.swift in Sources */,
+				CE30A7032A3F4AD8005A9D6C /* FavoriteAPISevices.swift in Sources */,
 				CE01079D2A39E45700D6C138 /* PostAPISever.swift in Sources */,
+				CE30A7002A3F47B0005A9D6C /* PinPostRepository.swift in Sources */,
 				CE28E4082A2ADF3200663DA5 /* ItemSection1CollectionViewCell.swift in Sources */,
+				CE30A7072A3F59C0005A9D6C /* PinPostRouter.swift in Sources */,
 				CE0107AE2A3A240C00D6C138 /* HomePresenter.swift in Sources */,
 				CE01079F2A39EB3200D6C138 /* ArrayPesponse.swift in Sources */,
+				CE30A7212A3FED15005A9D6C /* PinPostPresenter.swift in Sources */,
 				CE26015C2A37524200A99C4D /* CustomStyleTabBarContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

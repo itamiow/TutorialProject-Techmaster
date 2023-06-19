@@ -71,16 +71,6 @@ class RegisterViewController: UIViewController {
         userNameLabel.isHidden = true
         passWordLabel.isHidden = true
     }
-    @IBAction func usernameClickTF(_ sender: UITextField) {
-        nickNameLabel.isHidden = true
-        userNameLabel.isHidden = true
-        passWordLabel.isHidden = true
-    }
-    @IBAction func passwordClickTF(_ sender: UITextField) {
-        nickNameLabel.isHidden = true
-        userNameLabel.isHidden = true
-        passWordLabel.isHidden = true
-    }
     @IBAction func handleRegisterButton(_ sender: UIButton) {
        
         let username = userNameTexField1.text ?? ""
