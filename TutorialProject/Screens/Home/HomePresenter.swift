@@ -46,7 +46,7 @@ class HomePresenterImpl: HomePresenter {
         _getPosts(page: currentPage, apiType: .refresh)
     }
     
-    private func _getPosts(page: Int, pageSize: Int = 20, apiType: APIType) {
+    private func _getPosts(page: Int , pageSize: Int = 20, apiType: APIType) {
         switch apiType {
         case .getInit:
             homeVC.showLoading(isShow: true)

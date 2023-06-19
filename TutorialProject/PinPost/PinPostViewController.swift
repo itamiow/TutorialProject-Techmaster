@@ -1,15 +1,14 @@
 //
-//  HomePostViewController.swift
-//  TutorialProject
+//  PinPostViewController.swift
+//  PostsApp
 //
-//  Created by USER on 14/06/2023.
+//  Created by Hà Văn Đức on 25/05/2023.
 //
 
 import UIKit
 import MBProgressHUD
-import Alamofire
 
-protocol HomeDisplay {
+protocol PinPostDisplay {
     func getPosts(posts: [PostGetEntity])
     func loadmorePosts(posts: [PostGetEntity])
     func callAPIFailure(errorMsg: String?)
@@ -17,119 +16,103 @@ protocol HomeDisplay {
     func hideRefreshLoading()
 }
 
-class HomePostViewController: UIViewController {
 
-    @IBOutlet weak var homeTableView: UITableView!
+class PinPostViewController: UIViewController {
+    
+    @IBOutlet weak var myTableview: UITableView!
+    
+    
     private var posts: [PostGetEntity]?
-
-    private var presenter: HomePresenter!
+    
+    private var presenter: PinPostPresenter!
     private var refresher = UIRefreshControl()
-
-    private var cacheImages = [String: UIImage]()
-
+        
     override func viewDidLoad() {
-        let service = PostGetAPISerivceImpl()
-        let repo = PostRepositoryImpl(postAPISevece: service)
-        presenter = HomePresenterImpl(postRepository: repo, homeVC: self)
+        let service = PinPostAPIServiceImpl()
+        let repo = PinPostRepositoryImpl(apiService: service)
+        presenter = PinPostPresenterImpl(repository: repo, pinPostVC: self)
         super.viewDidLoad()
         setupTableView()
-
+        
         presenter.getPosts()
     }
-
+    
     private func setupTableView() {
-        homeTableView.delegate = self
-        homeTableView.dataSource = self
-        homeTableView.tableFooterView = UIView()
-        // không muốn hiển thị các vạch ngăn cách giữa các cell
-        homeTableView.separatorStyle = .none
-        homeTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
-        homeTableView.refreshControl = refresher
+        myTableview.delegate = self
+        myTableview.dataSource = self
+        myTableview.tableFooterView = UIView()
+        myTableview.separatorStyle = .none
+        myTableview.register(UINib(nibName: "PinPostTableViewCell", bundle: nil), forCellReuseIdentifier: "PinPostTableViewCell")
+        myTableview.refreshControl = refresher
         refresher.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
-        homeTableView.reloadData()
     }
-
+    
     @objc func onRefresh() {
         presenter.refreshPosts()
     }
 
-
-    private func loadImage(link: String, completed: ((UIImage?) -> Void)?) {
-        AF.download(link).responseData { [weak self] response in
-            guard let self = self else { return }
-            if let data = response.value {
-                let image = UIImage(data: data)
-                self.cacheImages[link] = image
-                completed?(image)
-            }
-        }
+    private func routeToAuthNavigation() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else { return}
+        let nav = UINavigationController(rootViewController: vc)
+        nav.setNavigationBarHidden(true, animated: true)
+        window.rootViewController = nav
+        window.makeKeyAndVisible()
     }
 }
 
-extension HomePostViewController: UITableViewDataSource {
+extension PinPostViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts?.count ?? 0
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PinPostTableViewCell", for: indexPath) as! PinPostTableViewCell
         let post = posts![indexPath.row]
-        if let user = post.author, let avatarImg = user.profile.avatar {
-            if let imgCached = cacheImages[avatarImg] {
-                cell.authorAvatar(image: imgCached)
-            } else {
-                loadImage(link: avatarImg) { image in
-                    cell.authorAvatar(image: image)
-                }
-            }
-        } else {
-            cell.authorAvatar(image: nil)
-        }
-
         cell.bindData(post: post)
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let posts = posts else {
             return
         }
-
         if indexPath.row == posts.count - 1 {
             self.presenter.loadmorePosts()
         }
     }
 }
 
-extension HomePostViewController: HomeDisplay {
+extension PinPostViewController: PinPostDisplay {
     func getPosts(posts: [PostGetEntity]) {
         if posts.isEmpty {
-            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: homeTableView.bounds.size.width, height: homeTableView.bounds.size.height))
+            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: myTableview.bounds.size.width, height: myTableview.bounds.size.height))
             messageLabel.text = "No data"
             messageLabel.textColor = .black
             messageLabel.numberOfLines = 0;
             messageLabel.textAlignment = .center;
             messageLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .medium)
             messageLabel.sizeToFit()
-            homeTableView.backgroundView = messageLabel
+            myTableview.backgroundView = messageLabel
         } else {
-            homeTableView.backgroundView = nil
+            myTableview.backgroundView = nil
         }
         self.posts = posts
-        homeTableView.reloadData()
+        myTableview.reloadData()
     }
-
+    
     func loadmorePosts(posts: [PostGetEntity]) {
         self.posts?.append(contentsOf: posts)
-        homeTableView.reloadData()
+        myTableview.reloadData()
     }
-
+    
     func callAPIFailure(errorMsg: String?) {
         let alert = UIAlertController(title: "Get posts failure", message: errorMsg ?? "Something went wrong", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
     }
-
+    
     func showLoading(isShow: Bool) {
         if isShow {
             MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -137,12 +120,12 @@ extension HomePostViewController: HomeDisplay {
             MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
-
+    
     func hideRefreshLoading() {
         refresher.endRefreshing()
     }
 }
 
-extension HomePostViewController: UITableViewDelegate {
-
+extension PinPostViewController: UITableViewDelegate {
+    
 }
